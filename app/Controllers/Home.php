@@ -2,10 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Models\MatkulModel;
+
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
-        return view('dashboard');
+        $model = new MatkulModel(); 
+        $data['matkul'] = $model->findAll(); 
+        return view('dashboard', $data);
     }
 }

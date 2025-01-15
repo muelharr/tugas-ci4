@@ -366,21 +366,24 @@
                 <div class="container-fluid">
 
                     <div class="row">
-                    <?php foreach ($matkul as $mk) : ?>
-                    <div class="card" style="width: 16rem;">
-                    <img src="<?php echo base_url() . '/upload/' . $mk->gambar ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title"><?php echo $mk->nama_matkul ?></h5>
-                    <small><?php echo $mk->keterangan ?></small>
-                    <small><?php echo $mk->kategori ?></small>
-                    <small><?php echo $mk->sks ?></small>
-                    <p class="card-text">Jika ingin mengambil matakuliah silahkan klik button dibawah ini</p>
-                    <a href="#" class="btn btn-primary">Ambil Matakuliah</a><br><br>
-                    <a href="#" class="btn btn-primary">Detail</a>
-                    </div>
-                </div>
-                
-                <?php endforeach ?>
+                    <?php if (!empty($matkul)) : ?>
+    <?php foreach ($matkul as $mk) : ?>
+        <div class="card" style="width: 16rem;">
+            <img src="<?php echo base_url() . '/upload/' . $mk->gambar ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $mk->nama_matkul ?></h5>
+                <small><?php echo $mk->keterangan ?></small>
+                <small><?php echo $mk->kategori ?></small>
+                <small><?php echo $mk->sks ?></small>
+                <p class="card-text">Jika ingin mengambil matakuliah silahkan klik button di bawah ini</p>
+                <a href="#" class="btn btn-primary">Ambil Matakuliah</a><br><br>
+                <a href="#" class="btn btn-primary">Detail</a>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php else : ?>
+    <p>Tidak ada data mata kuliah.</p>
+<?php endif; ?>
 
                 </div>
                 </div>
